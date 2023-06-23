@@ -20,12 +20,16 @@ services:
         max-file: "3"
 
   php:
-    build: ./docker/php
+    build: 
+      context: .
+      dockerfile: ./images/php/Dockerfile
     container_name: php
+    working_dir: /var/www/dices/back
     restart: on-failure
     volumes:
-      - ./:/var/www/dices/back
+      - .:/var/www/dices/back
     user: "1000:1000"
+    env_file: .env
     depends_on:
       - mysql
     ports:
