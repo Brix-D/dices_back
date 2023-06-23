@@ -1,0 +1,6 @@
+mysql
+mysql_logs
+.env
+node_modules
+vendor
+
